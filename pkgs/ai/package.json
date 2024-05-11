@@ -1,0 +1,5 @@
+{
+  "name": "@pkgs/ai",
+  "module": "index.ts",
+  "type": "module"
+}
