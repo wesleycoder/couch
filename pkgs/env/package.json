@@ -1,0 +1,5 @@
+{
+  "name": "@pkgs/env",
+  "module": "index.ts",
+  "type": "module"
+}
