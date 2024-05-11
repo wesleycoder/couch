@@ -1,0 +1,5 @@
+{
+  "name": "@pkgs/turso-db",
+  "module": "index.ts",
+  "type": "module"
+}
