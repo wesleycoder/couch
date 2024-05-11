@@ -1,0 +1,68 @@
+{
+  "$schema": "https://biomejs.dev/schemas/1.7.3/schema.json",
+  "organizeImports": {
+    "enabled": true
+  },
+  "vcs": {
+    "root": ".",
+    "clientKind": "git",
+    "defaultBranch": "main",
+    "enabled": true,
+    "useIgnoreFile": true
+  },
+  "formatter": {
+    "indentStyle": "space",
+    "ignore": ["node_modules", "dist", ".turbo"]
+  },
+  "linter": {
+    "enabled": true,
+    "ignore": ["node_modules", "dist", ".turbo"],
+    "rules": {
+      "recommended": true
+    }
+  },
+  "javascript": {
+    "formatter": {
+      "lineWidth": 120,
+      "semicolons": "asNeeded",
+      "quoteStyle": "single"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentWidth": 2,
+      "indentStyle": "space"
+    },
+    "parser": {
+      "allowComments": true,
+      "allowTrailingCommas": true
+    }
+  },
+  "overrides": [
+    {
+      "include": ["**/*.jsonc", "biome.jsonc", "tsconfig.json", ".vscode/**"],
+      "json": {
+        "formatter": {
+          "trailingCommas": "all"
+        },
+        "parser": {
+          "allowComments": true,
+          "allowTrailingCommas": true
+        }
+      }
+    },
+    {
+      /**
+       * TODO: need to figure out how to tell vscode to ignore trailing commas for biome.jsonc
+       * @see: https://github.com/biomejs/biome-vscode/issues/213
+       */
+      "include": ["biome.jsonc"],
+      "json": {
+        "formatter": {
+          "trailingCommas": "none"
+        }
+      }
+    }
+  ]
+}
