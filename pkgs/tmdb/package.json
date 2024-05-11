@@ -1,0 +1,5 @@
+{
+  "name": "@pkgs/tmdb",
+  "module": "index.ts",
+  "type": "module"
+}
