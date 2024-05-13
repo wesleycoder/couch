@@ -3,6 +3,7 @@ import { z } from 'zod'
 export const envSchema = z.object({
   ASTRA_DB_API_ENDPOINT: z.string(),
   ASTRA_DB_APPLICATION_TOKEN: z.string(),
+  ASTRA_DB_KEYSPACE: z.string().default('default_keyspace'),
   OPENAI_API_KEY: z.string(),
   OPENAI_ORG_ID: z.string(),
   OPENAI_PROJECT_ID: z.string(),
