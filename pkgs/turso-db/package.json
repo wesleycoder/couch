@@ -1,5 +1,8 @@
 {
   "name": "@pkgs/turso-db",
   "module": "index.ts",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "db": "drizzle-kit"
+  }
 }
