@@ -1,5 +1,8 @@
 {
   "name": "@pkgs/ai",
   "module": "index.ts",
-  "type": "module"
+  "type": "module",
+  "scripts": {
+    "postinstall": "test -f ./models/en/zephyr-quiklang-3b-4k.Q2_K.gguf || ./scripts/get-models.ts"
+  }
 }

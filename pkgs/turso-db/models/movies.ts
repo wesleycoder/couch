@@ -57,12 +57,10 @@ export const moviesTable = sqliteTable('movies', {
   vote_average: integer('vote_average').default(0),
   vote_count: integer('vote_count').default(0),
   vector: text('vector', { mode: 'json' }).$type<number[]>(),
-  astraId: text('astraId'),
   created_at: int('created_at', { mode: 'timestamp_ms' }).default(sql`(CURRENT_TIMESTAMP)`),
   updated_at: int('updated_at', { mode: 'timestamp_ms' })
     .default(sql`(CURRENT_TIMESTAMP)`)
     .$onUpdate(() => new Date()),
-  deleted_at: int('deleted_at', { mode: 'timestamp_ms' }),
 })
 
 export const insertMoviesSchema = createInsertSchema(moviesTable)

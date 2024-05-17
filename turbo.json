@@ -1,12 +1,21 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  "experimentalUI": true,
   "pipeline": {
     "db": {
-      "cache": false
+      "cache": false,
+      "interactive": true,
+      "persistent": true
+    },
+    "test": {
+      "cache": false,
+      "interactive": true,
+      "persistent": true
     },
     "dev": {
       "dependsOn": ["^dev"],
       "cache": false,
+      "interactive": true,
       "persistent": true
     },
     "lint": {}

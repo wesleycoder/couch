@@ -3,6 +3,9 @@
   "module": "index.ts",
   "type": "module",
   "scripts": {
+    "dev": "run-p dev:turso dev:studio",
+    "dev:turso": "turso dev --db-file couch-dev.db",
+    "dev:studio": "drizzle-kit studio",
     "db": "drizzle-kit"
   }
 }

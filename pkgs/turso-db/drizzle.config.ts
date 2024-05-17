@@ -1,3 +1,4 @@
+import env from '@pkgs/env'
 import 'dotenv/config'
 import type { Config } from 'drizzle-kit'
 
@@ -7,7 +8,7 @@ export default {
   driver: 'turso',
   dialect: 'sqlite',
   dbCredentials: {
-    url: process.env.TURSO_DB_URL,
-    authToken: process.env.TURSO_DB_TOKEN,
+    url: env.TURSO_DB_URL,
+    authToken: env.TURSO_DB_TOKEN,
   },
 } satisfies Config

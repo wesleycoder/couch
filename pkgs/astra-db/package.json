@@ -1,5 +1,0 @@
-{
-  "name": "@pkgs/astra-db",
-  "module": "index.ts",
-  "type": "module"
-}

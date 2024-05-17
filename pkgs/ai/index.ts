@@ -1,24 +1,12 @@
+import { LlamaCppEmbeddings } from '@langchain/community/embeddings/llama_cpp'
 import env from '@pkgs/env'
-import OpenAI from 'openai'
 
-export const openai = new OpenAI({
-  apiKey: env.OPENAI_API_KEY,
-  organization: env.OPENAI_ORG_ID,
-  project: env.OPENAI_PROJECT_ID,
+const llamaPath = `${import.meta.dir}/models/en/zephyr-quiklang-3b-4k.Q2_K.gguf`
+
+const embeddings = new LlamaCppEmbeddings({
+  modelPath: llamaPath,
+  embedding: true,
+  contextSize: env.DEFAULT_EMBED_SIZE,
 })
 
-const defaultEmbeddingOptions = {
-  model: env.OPENAI_DEFAULT_EMBED_MODEL,
-  dimensions: env.OPENAI_DEFAULT_EMBED_DIMENSIONS,
-}
-
-export async function getEmbedding(
-  input: string,
-  opts: { model: string; dimensions: number } = defaultEmbeddingOptions,
-) {
-  const { data } = await openai.embeddings.create({ input, ...defaultEmbeddingOptions, ...opts })
-
-  if (!data[0]?.embedding) throw new Error('No data returned from OpenAI')
-
-  return data[0].embedding
-}
+export const getEmbedding = embeddings.embedQuery.bind(embeddings)
